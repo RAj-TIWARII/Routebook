@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------- */
+/* Design tokens — the single source of truth for the RouteBook look.      */
+/* Every color, radius, and font in the app should trace back to here.     */
+/* ---------------------------------------------------------------------- */
+@theme {
+  --color-bg: #050505;
+  --color-glass: rgba(255, 255, 255, 0.08);
+  --color-glass-strong: rgba(255, 255, 255, 0.14);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-primary: #ffffff;
+  --color-secondary: #b6bcc8;
+  --color-accent: #6ea8ff;
+  --color-accent-dim: rgba(110, 168, 255, 0.35);
+
+  --radius-glass: 18px;
+
+  --font-display: 'General Sans', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: auto; /* Lenis takes over scroll easing */
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-accent-dim);
+    color: var(--color-primary);
+  }
+
+  /* Visible, elegant keyboard focus — never removed, only restyled */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    border: 2px solid var(--color-bg);
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--color-glass);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-glass);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+  }
+
+  .glass-strong {
+    background: var(--color-glass-strong);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-glass);
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* MapLibre popups restyled to match the glass language */
+.maplibregl-popup-content {
+  background: rgba(10, 10, 12, 0.85) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: 14px !important;
+  color: var(--color-primary);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  padding: 14px 16px !important;
+}
+.maplibregl-popup-tip {
+  display: none !important;
+}
+.maplibregl-ctrl-attrib {
+  background: transparent !important;
+}

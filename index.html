@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RouteBook — A private atlas of everywhere you've been</title>
+    <meta
+      name="description"
+      content="RouteBook is a cinematic personal travel journal — an interactive world map, timeline, and gallery of every place you've ever visited."
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:title" content="RouteBook" />
+    <meta
+      property="og:description"
+      content="A private atlas of everywhere you've been."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Preconnect to font + map tile origins for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!--
+      General Sans is licensed via Fontshare, not Google Fonts.
+      Swap this <link> for your own Fontshare/self-hosted kit URL —
+      the class name "font-display" already expects "General Sans".
+    -->
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-bg text-primary antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
